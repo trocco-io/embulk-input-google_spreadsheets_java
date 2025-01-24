@@ -18,13 +18,16 @@ import java.util.stream.Stream;
 import javax.validation.constraints.NotNull;
 import org.embulk.config.ConfigException;
 import org.embulk.input.google_spreadsheets_java.PluginTask;
-import org.embulk.spi.json.JsonValue;
-import org.embulk.util.json.JsonValueParser;
 import org.embulk.util.timestamp.TimestampFormatter;
+import org.msgpack.value.Value;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public abstract class TypeCast {
+  @SuppressWarnings("deprecation") // TODO: For compatibility with Embulk v0.9
+  protected static final org.embulk.util.json.JsonParser PARSER =
+      new org.embulk.util.json.JsonParser();
+
   protected static final BigDecimal SECONDS_PER_DAY = new BigDecimal(60 * 60 * 24);
   protected static final Logger LOGGER =
       LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
@@ -63,7 +66,7 @@ public abstract class TypeCast {
 
   public abstract Instant asTimestamp(Object value, String format, ZoneId zone);
 
-  public abstract JsonValue asJson(Object value);
+  public abstract Value asJson(Object value);
 
   @Override
   public String toString() {
@@ -182,9 +185,9 @@ public abstract class TypeCast {
             : toInstant(value, format, zone, now.atZone(zone));
   }
 
-  protected JsonValue asJson(@NotNull String value) {
-    try (JsonValueParser parser = JsonValueParser.builder().build(value)) {
-      return parser.readJsonValue();
+  protected Value asJson(@NotNull String value) {
+    try {
+      return PARSER.parse(value);
     } catch (Exception e) {
       throw new TypeCastException("Cannot type cast '" + value + "' to json", e);
     }

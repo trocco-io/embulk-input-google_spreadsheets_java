@@ -3,7 +3,7 @@ package org.embulk.input.google_spreadsheets_java.typecast;
 import java.time.Instant;
 import java.time.ZoneId;
 import org.embulk.input.google_spreadsheets_java.PluginTask;
-import org.embulk.spi.json.JsonValue;
+import org.msgpack.value.Value;
 
 public class LooseTypeCast extends StrictTypeCast {
   protected LooseTypeCast(PluginTask task) {
@@ -61,7 +61,7 @@ public class LooseTypeCast extends StrictTypeCast {
   }
 
   @Override
-  public JsonValue asJson(Object value) {
+  public Value asJson(Object value) {
     try {
       return super.asJson(value);
     } catch (TypeCastException e) {

@@ -3,7 +3,7 @@ package org.embulk.input.google_spreadsheets_java.typecast;
 import java.time.Instant;
 import java.time.ZoneId;
 import org.embulk.input.google_spreadsheets_java.PluginTask;
-import org.embulk.spi.json.JsonValue;
+import org.msgpack.value.Value;
 
 public class MinimalTypeCast extends TypeCast {
   protected MinimalTypeCast(PluginTask task) {
@@ -36,7 +36,7 @@ public class MinimalTypeCast extends TypeCast {
   }
 
   @Override
-  public JsonValue asJson(Object value) {
+  public Value asJson(Object value) {
     return nullOr(value, this::asJson);
   }
 }

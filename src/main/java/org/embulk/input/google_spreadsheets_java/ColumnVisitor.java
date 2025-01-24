@@ -4,7 +4,7 @@ import java.time.Instant;
 import java.util.List;
 import org.embulk.spi.Column;
 import org.embulk.spi.PageBuilder;
-import org.embulk.spi.json.JsonValue;
+import org.msgpack.value.Value;
 
 public class ColumnVisitor implements org.embulk.spi.ColumnVisitor {
   private final PageBuilder builder;
@@ -67,8 +67,9 @@ public class ColumnVisitor implements org.embulk.spi.ColumnVisitor {
   }
 
   @Override
+  @SuppressWarnings("deprecation") // TODO: For compatibility with Embulk v0.9
   public void jsonColumn(Column column) {
-    JsonValue value = (JsonValue) record.get(column.getIndex());
+    Value value = (Value) record.get(column.getIndex());
     if (value != null) {
       builder.setJson(column, value);
     } else {

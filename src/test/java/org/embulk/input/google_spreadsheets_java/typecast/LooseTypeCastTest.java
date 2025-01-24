@@ -14,8 +14,8 @@ import java.time.ZoneOffset;
 import java.util.function.Function;
 import org.embulk.input.google_spreadsheets_java.PluginTask;
 import org.embulk.input.google_spreadsheets_java.PluginTaskBuilder;
-import org.embulk.spi.json.JsonValue;
 import org.junit.Test;
+import org.msgpack.value.Value;
 
 public class LooseTypeCastTest {
   private static final PluginTask TASK = PluginTaskBuilder.getDefault().build();
@@ -316,7 +316,7 @@ public class LooseTypeCastTest {
 
   @Test
   public void asJson() {
-    Function<Object, JsonValue> asJson = TYPE_CAST::asJson;
+    Function<Object, Value> asJson = TYPE_CAST::asJson;
     Function<Object, String> toJson = value -> asJson.apply(value).toJson();
     assertThat(asJson.apply(null), is(nullValue()));
     assertThat(asJson.apply(""), is(nullValue()));
