@@ -1,0 +1,29 @@
+# This is a Gradle generated file for dependency locking.
+# Manual edits can break the build and are not advised.
+# This file is expected to be part of source control.
+com.google.api-client:google-api-client:2.7.0=compileClasspath,runtimeClasspath
+com.google.apis:google-api-services-sheets:v4-rev20241008-2.0.0=compileClasspath,runtimeClasspath
+com.google.auth:google-auth-library-credentials:1.23.0=compileClasspath,runtimeClasspath
+com.google.auth:google-auth-library-oauth2-http:1.23.0=compileClasspath,runtimeClasspath
+com.google.auto.value:auto-value-annotations:1.10.4=compileClasspath,runtimeClasspath
+com.google.code.findbugs:jsr305:3.0.2=compileClasspath,runtimeClasspath
+com.google.code.gson:gson:2.11.0=compileClasspath,runtimeClasspath
+com.google.errorprone:error_prone_annotations:2.30.0=compileClasspath,runtimeClasspath
+com.google.guava:failureaccess:1.0.2=compileClasspath,runtimeClasspath
+com.google.guava:guava:33.1.0-jre=compileClasspath,runtimeClasspath
+com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava=compileClasspath,runtimeClasspath
+com.google.http-client:google-http-client-apache-v2:1.45.0=compileClasspath,runtimeClasspath
+com.google.http-client:google-http-client-gson:1.45.0=compileClasspath,runtimeClasspath
+com.google.http-client:google-http-client:1.45.0=compileClasspath,runtimeClasspath
+com.google.j2objc:j2objc-annotations:3.0.0=compileClasspath,runtimeClasspath
+com.google.oauth-client:google-oauth-client:1.36.0=compileClasspath,runtimeClasspath
+commons-codec:commons-codec:1.17.0=compileClasspath,runtimeClasspath
+commons-logging:commons-logging:1.2=compileClasspath,runtimeClasspath
+io.grpc:grpc-api:1.66.0=runtimeClasspath
+io.grpc:grpc-context:1.66.0=compileClasspath,runtimeClasspath
+io.opencensus:opencensus-api:0.31.1=compileClasspath,runtimeClasspath
+io.opencensus:opencensus-contrib-http-util:0.31.1=compileClasspath,runtimeClasspath
+org.apache.httpcomponents:httpclient:4.5.14=compileClasspath,runtimeClasspath
+org.apache.httpcomponents:httpcore:4.4.16=compileClasspath,runtimeClasspath
+org.checkerframework:checker-qual:3.42.0=compileClasspath,runtimeClasspath
+empty=
